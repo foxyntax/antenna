@@ -1,0 +1,28 @@
+{
+    "name": "foxyntax/monitoring",
+    "description": "It provides some features to manitor your bugs",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Milad Mohammadi",
+            "email": "support@foxyntax.ir",
+            "homepage": "https://foxyntax.ir",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Foxyntax\\Monitoring\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Foxyntax\\Monitoring\\MonitoringServiceProvider"
+            ]
+        }
+    }
+}
