@@ -4,19 +4,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Log Config
+    | Log Configuration
     |--------------------------------------------------------------------------
     | Description will be written after the package will released.
     |
     */
 
     'client_log' => [
-        'enabled'   => false,
-        'mail'      => '',
-        'tell'      => '',
-        'name'      => '',
-        'lang'      => 'en', // or fa
-        'period'    => 1
+        'enabled'       => false,
+        'client_name'   => '',
+        'mail'          => '',
+        'tell'          => '',
+        'lang'          => 'en', // or fa
     ],
 
     'dev_log' => [
@@ -24,11 +23,18 @@ return [
         'route'         => '/get-logs', // return /monitor/get-logs in routes
         'organization'  => 'foxyntax',
         'lang'          => 'en', // or fa
+    ],
 
+    'type' => [
         'mail'  => [
             'enabled'   => true,
             'address'   => 'foxyntax@gmail.com',
             'period'    => 1, // based on day 
+
+            'theme'     => [
+                'direction' => 'ltr',
+                'color'     => 'red' // also you can use RGBa, RGB and HEX code
+            ]
         ],
 
         'sms'   => [
