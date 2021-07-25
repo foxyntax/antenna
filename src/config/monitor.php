@@ -6,52 +6,59 @@ return [
     |--------------------------------------------------------------------------
     | Log Configuration
     |--------------------------------------------------------------------------
-    | Description will be written after the package will released.
+    | Description will be written after the package will be released.
     |
     */
 
-    'client_log' => [
-        'enabled'       => false,
-        'client_name'   => '',
-        'mail'          => '',
-        'tell'          => '',
-        'lang'          => 'en', // or fa
+    'API_KEY'   => '',
+
+    'max_archives'  => 2000,
+
+    'lang'  => 'en',
+
+    'period'  => 5,
+
+    'sms' => [
+        'enabled'   => true,
+        'drivers'    => [
+            'kavenegar' => [
+                'enabled'   => true,
+                'API_KEY'   => ''
+            ],
+            // 'others'    => [
+            //     'enabled'   => true,
+            //     'API_KEY'   => ''
+            // ]
+        ]
     ],
 
-    'dev_log' => [
-        'API_KEY'       => '',
-        'route'         => '/get-logs', // return /monitor/get-logs in routes
-        'organization'  => 'foxyntax',
-        'lang'          => 'en', // or fa
+    'mail'  => [
+        'enabled'   => true,
+        'theme'     => [
+            'direction' => 'ltr',
+            'color'     => 'red' // also you can use RGBa, RGB and HEX code
+        ]
     ],
 
-    'type' => [
-        'mail'  => [
-            'enabled'   => true,
-            'address'   => 'foxyntax@gmail.com',
-            'period'    => 1, // based on day 
-
-            'theme'     => [
-                'direction' => 'ltr',
-                'color'     => 'red' // also you can use RGBa, RGB and HEX code
-            ]
+    'users' => [
+        'client'   => [
+            'env'           => 'production',
+            'name'          => '',
+            'email'         => '',
+            'tell'          => '',
+            'direction'     => 'rtl', // optional, will be overwritten on mail.theme.direction
+            'color'         => 'green', // optional, will be overwritten on mail.color.direction
+            'lang'          => 'fa', // optional, will be overwritten on lang
+            'period'        => 10, // optional, will be overwritten on report_count
+            'sms'           => false, // optional, will be overwritten on sms.enabled
+            'mail'          => false // optional, will be overwritten on mail.enabled
         ],
-
-        'sms'   => [
-            'enabled'   => false,
-            'tell'      => '09361719209',
-            'period'    => 1,
-
-            'driver'   => [
-                'kavenegar' => [
-                    'enabled'   => true,
-                    'API_KEY'   => ''
-                ],
-                // 'others'    => [
-                //     'enabled'   => true,
-                //     'API_KEY'   => ''
-                // ]
-            ]
+    
+        'dev'  => [
+            'env'   => 'development',
+            'name'  => '',
+            'email' => '',
+            'tell'  => ''
         ]
     ]
 
