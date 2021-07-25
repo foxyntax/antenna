@@ -12,7 +12,10 @@ return [
 
     'API_KEY'   => '',
 
-    'max_archives'  => 2000,
+    'limitation'    => [
+        'archives'  => 2000,
+        'archives'  => 'all',
+    ],
 
     'lang'  => 'en',
 
