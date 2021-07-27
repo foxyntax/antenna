@@ -15,7 +15,7 @@ class CreateFxMonitoringReports extends Migration
     {
         Schema::create('fx_monitoring_reports', function (Blueprint $table) {
             $table->id();
-            $table->char('user_type', 25);
+            $table->char('role_type', 25);
             $table->tinyInteger('env');
             $table->timestamp('sent_at');
             $table->timestamps();
