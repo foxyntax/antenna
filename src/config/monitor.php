@@ -13,8 +13,8 @@ return [
     'API_KEY'   => '',
 
     'limitation'    => [
-        'archives'  => 2000,
-        'archives'  => 'all',
+        'archives'      => 2000,
+        'allowed_user'  => null
     ],
 
     'lang'  => 'en',
@@ -43,7 +43,7 @@ return [
         ]
     ],
 
-    'users' => [
+    'roles' => [
         'client'   => [
             'env'           => 'production',
             'name'          => '',
