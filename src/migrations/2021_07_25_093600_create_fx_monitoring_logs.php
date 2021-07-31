@@ -15,6 +15,7 @@ class CreateFxMonitoringLogs extends Migration
     {
         Schema::create('fx_monitoring_logs', function (Blueprint $table) {
             $table->id();
+            $table->text('title')->nullable();
             $table->text('log');
             $table->tinyInteger('is_sent')->default(0);
             $table->timestamps();
