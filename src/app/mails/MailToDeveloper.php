@@ -3,9 +3,10 @@
 namespace Foxyntax\Monitoring\App\Mails;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Support\Facades\App;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class MailToDeveloper extends Mailable
 {
@@ -65,6 +66,7 @@ class MailToDeveloper extends Mailable
      */
     public function build()
     {
+        App::setLocale($this->config['lang']);
         return $this->view('emails.fx_development')
                     ->with([
                         'role'  => $this->role,
