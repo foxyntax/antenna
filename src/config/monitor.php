@@ -14,7 +14,7 @@ return [
 
     'limitation'    => [
         'archives'      => 2000,
-        'allowed_user'  => null
+        'allowed_role'  => null
     ],
 
     'lang'  => 'en',
@@ -38,19 +38,20 @@ return [
     'mail'  => [
         'enabled'   => true,
         'theme'     => [
-            'direction' => 'ltr',
-            'color'     => 'red' // also you can use RGBa, RGB and HEX code
+            'direction' => 'ltr'
         ]
     ],
 
+    'developer' => 'dev',
+    'client'    => 'client',
+
     'roles' => [
         'client'   => [
-            'env'           => 'production',
+            'env'           => 'client',
             'name'          => '',
             'email'         => '',
             'tell'          => '',
             'direction'     => 'rtl', // optional, will be overwritten on mail.theme.direction
-            'color'         => 'green', // optional, will be overwritten on mail.color.direction
             'lang'          => 'fa', // optional, will be overwritten on lang
             'period'        => 10, // optional, will be overwritten on report_count
             'sms'           => false, // optional, will be overwritten on sms.enabled
