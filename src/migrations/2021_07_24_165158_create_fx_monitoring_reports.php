@@ -16,7 +16,7 @@ class CreateFxMonitoringReports extends Migration
         Schema::create('fx_monitoring_reports', function (Blueprint $table) {
             $table->id();
             $table->char('role_type', 25);
-            $table->tinyInteger('env');
+            $table->char('env', 20)->default('client');
             $table->timestamp('sent_at');
             $table->timestamps();
         });
