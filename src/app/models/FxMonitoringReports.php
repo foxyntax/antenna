@@ -8,6 +8,15 @@ class FxMonitoringReports extends Model
 {
 
     /**
+     * The model's default values for attributes.
+     *
+     * @param array
+     */
+    protected $attributes = [
+        'env'   => 'client'
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @param array
