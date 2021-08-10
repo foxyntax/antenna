@@ -13,20 +13,12 @@ interface DriverRegisteration {
 
 
     /**
-     ** Send a sms based on development enironment
+     ** Send a sms
      * 
-     * @param integer
-     * @return boolean
+     * @param array $config
+     * @param string $message
      */
-    public function send_for_developer(object $config, object $data) : boolean;
+    public function send(array $config, string $message);
 
-
-    /**
-     ** Send a sms based on production enironment
-     * 
-     * @param integer
-     * @return boolean
-     */
-    public function send_for_users(object $config, object $data) : boolean;
 
 }
