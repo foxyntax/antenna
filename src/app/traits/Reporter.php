@@ -75,7 +75,7 @@ trait Reporter {
 
         }
         
-        $this->send($limit);
+        $this->send();
     }
 
     /**
