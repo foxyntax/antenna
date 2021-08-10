@@ -285,7 +285,7 @@
             <td class="header">
                 <a href="#">
                     <img class="mx-4" src="https://farsisho.com/wp-content/uploads/2020/05/retina-transparent-logo.png">
-                    <span class="package-name mx-4">{{ __('mail.packagename') }}</span>
+                    <span class="package-name mx-4">{{ __('monitoring::mail.packagename') }}</span>
                 </a>
             </td>
         <thead>
@@ -301,7 +301,7 @@
                     </tr>
                     <tr>
                         <td class="align-center">
-                            <h1>{{ __('mail.main-title', ['log-count'   => count($logs)]) }}</h1>
+                            <h1>{{ __('monitoring::mail.main-title', ['log-count'   => count($logs)]) }}</h1>
                             <p class="mb-sec mt-0"></p>
                         </td>
                     </tr>
@@ -313,13 +313,13 @@
                         <td>
                             <h6 class="mb-4">
                                 <span>&#128355</span>
-                                <span> {{ __('mail.report-time', 'time' => $time) }} </span>
+                                <span> {{ __('monitoring::mail.report-time', 'time' => $time) }} </span>
                             </h6>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            {{ __('mail.cli-warning-note') }}
+                            {{ __('monitoring::mail.cli-warning-note') }}
                         </td>
                     </tr>
                     <!-- Developer Information -->
@@ -328,7 +328,7 @@
                         <td>
                             <h5 class="mb-4">
                                 <span>&#128161</span>
-                                <span> {{ __('mail.info-title', ['person'   => 'Developer']) }} </span>
+                                <span> {{ __('monitoring::mail.info-title', ['person'   => 'Developer']) }} </span>
                             </h5>
                             <table border="0" cellpadding="0" cellspacing="0" class="content info">
                                 @if (isset($developer['name']))
@@ -336,7 +336,7 @@
                                     <td>
                                         <h6 class="mb-4 mt-0 mx-12">
                                             <small style="">&#11035</small>
-                                            {{ __('mail.name') . ' ' . $developer['name'] }}
+                                            {{ __('monitoring::mail.name') . ' ' . $developer['name'] }}
                                         </h6>
                                     </td>
                                 </tr>
@@ -347,7 +347,7 @@
                                     <td>
                                         <h6 class="mb-4 mt-0 mx-12">
                                             <small style="">&#11035</small>
-                                            {{ __('mail.location') . ' ' . $developer['location'] }}
+                                            {{ __('monitoring::mail.location') . ' ' . $developer['location'] }}
                                         </h6>
                                     </td>
                                 </tr>
@@ -358,7 +358,7 @@
                                     <td>
                                         <h6 class="mb-4 mt-0 mx-12">
                                             <small style="">&#11035</small>
-                                            {{ __('mail.tell') . ' ' . $developer['tell'] }}
+                                            {{ __('monitoring::mail.tell') . ' ' . $developer['tell'] }}
                                         </h6>
                                     </td>
                                 </tr>
@@ -373,7 +373,7 @@
                     <!-- // Call to action // -->
                     <tr class="align-center">
                         <td>
-                            <a href="+tel:{{ $developer['tell'] }}" class="btn btn-primary">{{ __('mail.call-action') }}</a>
+                            <a href="+tel:{{ $developer['tell'] }}" class="btn btn-primary">{{ __('monitoring::mail.call-action') }}</a>
                         <td>
                     </tr>
                 </table>
@@ -382,7 +382,7 @@
         {{-- Footer --}}
         <tfoot class="align-center">
             <td class="footer">
-                <p class="mb-sec mt-4 light-color">{{ __('copyright') }}</p>
+                <p class="mb-sec mt-4 light-color">{{ __('monitoring::mail.copyright') }}</p>
             </td>
         </tfoot>
     </table>
