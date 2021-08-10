@@ -58,14 +58,34 @@ class MailLogService extends Mailable
                     Mail::to($this->config['roles'][$name]['mail'])
                         ->send(new MailToDeveloper($log, $this->config['roles'][$name], $time));
                     break;
-                case 'client': 
+                case 'client':
                     Mail::to($this->config['roles'][$name]['mail'])
                         ->send(new MailToClient($this->config['roles'][$name], $time));
                     break;
                 default:
-                    // use log method to save log in log folder
-                    break;
+                    $this->log($role_env);
             }
+        }
+    }
+
+    /**
+     ** Append/Create new log into logs.txt 
+     * 
+     * @param string $env
+     * @return void
+     */
+    protected function log(string $env)
+    {
+        $file_path = __DIR__ . '/../../logs/logs.txt';
+        $new_content = "the environment is not defined and can't mail it\nthat env is $env.";
+        
+        if (file_exists($file_path)) {
+            $file_content = file_get_contents($file_path);
+            file_put_contents($file_path, $new_content);
+        } else {
+            $handle = fopen($file_path, 'w+', $new_content);
+            fwrite($handle, $new_content);
+            fclose($handle);
         }
     }
 }
