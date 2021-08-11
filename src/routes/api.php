@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Foxyntax\Antenna\Test\Serivces\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::namespace('Tests')->prefix('test')->group(function () {
-    Route::get('/route', '');
+Route::prefix('test')->group(function () {
+    Route::get('/index', [TestController::class, 'test']);
 });

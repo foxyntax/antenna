@@ -16,4 +16,15 @@ Class TestController
     {
         Antenna::watch('this is a test log', 'Testing Package', true, 'dev');
     }
+
+    /**
+     * Run Watch method
+     * 
+     */
+    public function test()
+    {
+        return $response->json([
+            'success'   => true
+        ]);
+    }
 } 
