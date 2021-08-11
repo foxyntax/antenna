@@ -32,8 +32,8 @@ class AntennaServiceProvider extends ServiceProvider
 
         // Publish views [email views] file
         $this->publishes([
-            __DIR__.'/views/development.php'=> resource_path('views/emails/fx_development.blade.php'),
-            __DIR__.'/views/client.php'     => resource_path('views/emails/fx_client.blade.php')
+            __DIR__.'/app/views/fx_development.blade.php'=> resource_path('views/emails/fx_development.blade.php'),
+            __DIR__.'/app/views/fx_client.blade.php'     => resource_path('views/emails/fx_client.blade.php')
         ], 'views');
 
         // Publishing translations
