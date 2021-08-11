@@ -21,6 +21,11 @@
             "Foxyntax\\Antenna\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Foxyntax\\Antenna\\Test": "tests/"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
