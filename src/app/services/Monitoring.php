@@ -1,12 +1,12 @@
 <?php
 
-namespace Foxyntax\Monitoring\App\Serivces;
+namespace Foxyntax\Antena\App\Serivces;
 
 use Carbon\Carbon;
-use Foxyntax\Monitoring\App\Traits\Reporter;
-use Foxyntax\Monitoring\App\Models\FxMonitoringLogs;
+use Foxyntax\Antena\App\Traits\Reporter;
+use Foxyntax\Antena\App\Models\FxMonitoringLogs;
 
-Class Monitoring 
+Class Antena 
 {
     use Reporter;
 
@@ -36,7 +36,7 @@ Class Monitoring
         $logs->log = $log;
         $logs->save();
 
-        if ($priority === 1) {
+        if ($immediately) {
             $this->report($log, $immediately, $limit, $role);
         }
     }
@@ -59,7 +59,7 @@ Class Monitoring
     protected function delete_unnecessary_logs() : void
     {
         $sent_logs_count = FxMonitoringLogs::where('is_sent', 1)->count();
-        $max_archives = config('monitor.limitation.archives');
+        $max_archives = config('antena.limitation.archives');
         
         // Delete extra records
         if ($send_logs_count > $max_archives) {

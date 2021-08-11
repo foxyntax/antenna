@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>{{ __('monitoring::mail.meta-title') }}</title>
+    <title>{{ __('antena::mail.meta-title') }}</title>
     <style>
         /* -------------------------------------
             GLOBAL RESETS
@@ -285,7 +285,7 @@
             <td class="header">
                 <a href="#">
                     <img class="mx-4" src="https://farsisho.com/wp-content/uploads/2020/05/retina-transparent-logo.png">
-                    <span class="package-name mx-4">{{ __('monitoring::mail.packagename') }}</span>
+                    <span class="package-name mx-4">{{ __('antena::mail.packagename') }}</span>
                 </a>
             </td>
         <thead>
@@ -301,8 +301,8 @@
                     </tr>
                     <tr>
                         <td class="align-center">
-                            <h1>{{ __('monitoring::mail.main-title', ['log-count'   => count($logs)]) }}</h1>
-                            <p class="mb-sec mt-0">{{ __('monitoring::mail.dev-desc-title', ['app-name'    => config('app.name')]) }}</p>
+                            <h1>{{ __('antena::mail.main-title', ['log-count'   => count($logs)]) }}</h1>
+                            <p class="mb-sec mt-0">{{ __('antena::mail.dev-desc-title', ['app-name'    => config('app.name')]) }}</p>
                         </td>
                     </tr>
                 </table>
@@ -313,13 +313,13 @@
                         <td>
                             <h6 class="mb-4">
                                 <span>&#128355</span>
-                                <span> {{ __('monitoring::mail.report-time', 'time' => $time) }} </span>
+                                <span> {{ __('antena::mail.report-time', 'time' => $time) }} </span>
                             </h6>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            {{ __('monitoring::mail.dev-warning-note') }}
+                            {{ __('antena::mail.dev-warning-note') }}
                         </td>
                     </tr>
                     <!-- Client Information -->
@@ -328,7 +328,7 @@
                         <td>
                             <h5 class="mb-4">
                                 <span>&#128161</span>
-                                <span> {{ __('monitoring::mail.info-title', ['person'   => 'Client']) }} </span>
+                                <span> {{ __('antena::mail.info-title', ['person'   => 'Client']) }} </span>
                             </h5>
                             <table border="0" cellpadding="0" cellspacing="0" class="content info">
                                 @if (isset($client['name']))
@@ -336,7 +336,7 @@
                                     <td>
                                         <h6 class="mb-4 mt-0 mx-12">
                                             <small style="">&#11035</small>
-                                            {{ __('monitoring::mail.name') . ' ' . $client['name'] }}
+                                            {{ __('antena::mail.name') . ' ' . $client['name'] }}
                                         </h6>
                                     </td>
                                 </tr>
@@ -347,7 +347,7 @@
                                     <td>
                                         <h6 class="mb-4 mt-0 mx-12">
                                             <small style="">&#11035</small>
-                                            {{ __('monitoring::mail.location') . ' ' . $client['location'] }}
+                                            {{ __('antena::mail.location') . ' ' . $client['location'] }}
                                         </h6>
                                     </td>
                                 </tr>
@@ -358,7 +358,7 @@
                                     <td>
                                         <h6 class="mb-4 mt-0 mx-12">
                                             <small style="">&#11035</small>
-                                            {{ __('monitoring::mail.tell') . ' ' . $client['tell'] }}
+                                            {{ __('antena::mail.tell') . ' ' . $client['tell'] }}
                                         </h6>
                                     </td>
                                 </tr>
@@ -407,16 +407,16 @@
                     <!-- // Call to action // -->
                     <tr class="align-center">
                         <td>
-                            <a href="#" class="btn btn-primary mb-sec">{{ __('monitoring::mail.host-action') }}</a>
+                            <a href="#" class="btn btn-primary mb-sec">{{ __('antena::mail.host-action') }}</a>
                         <td>
                     </tr>
                     <!-- Donate Package -->
                     <tr class="align-center donate">
                         <td>
-                            <b class="mb-0">{{ __('monitoring::mail.happy_to_use') }}</b>
+                            <b class="mb-0">{{ __('antena::mail.happy_to_use') }}</b>
                             <small class="mt-4 block">
-                                <a href="#"><b>{{ __('monitoring::mail.donate-part1') }}</b></a>
-                                {{ __('monitoring::mail.donate-part2') }}
+                                <a href="#"><b>{{ __('antena::mail.donate-part1') }}</b></a>
+                                {{ __('antena::mail.donate-part2') }}
                             </small>
                         </td>
                     </tr>
@@ -426,7 +426,7 @@
         {{-- Footer --}}
         <tfoot class="align-center">
             <td class="footer">
-                <p class="mb-sec mt-4 light-color">{{ __('monitoring::mail.copyright') }}</p>
+                <p class="mb-sec mt-4 light-color">{{ __('antena::mail.copyright') }}</p>
             </td>
         </tfoot>
     </table>

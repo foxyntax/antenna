@@ -13,7 +13,7 @@ return [
     */
 
     'meta-title'        => 'Report bugs',
-    'package-name'      => 'Monitoring | Foxyntax',
+    'package-name'      => 'Antena | Foxyntax',
     'mail-title'        => ':log-count bugs found',
     'dev-desc-title'    => ':app-name found new bugs, please fix it as soon as possible.',
     'cli-desc-title'    => ':app-name found new bugs, please contact your developer.',
@@ -27,7 +27,7 @@ return [
     'default-log-title' => 'The #:key',
     'host-action'       => 'Go to host',
     'call-action'       => 'Call your developer',
-    'happy-to-use'      => 'Are you happy to use foxyntax monitoring package??',
+    'happy-to-use'      => 'Are you happy to use foxyntax antena package??',
     'donate-part1'      => 'donate me',
     'donate-part2'      => 'to add more features in future package upgrades',
     'copyright'         => 'Created by Milad Mohammadi | Foxyntax',

@@ -1,8 +1,8 @@
 <?php
 
-namespace Foxyntax\Monitoring\App\Drivers;
+namespace Foxyntax\Antena\App\Drivers;
 
-use Foxyntax\Monitoring\App\Interfaces\DriverRegisteration;
+use Foxyntax\Antena\App\Interfaces\DriverRegisteration;
 use Kavenegar\KavenegarApi;
 use Kavenegar\Exceptions\ApiException;
 use Kavenegar\Exceptions\HttpException;
@@ -28,13 +28,13 @@ class Kavenegar implements DriverRegisteration {
 
 
     /**
-     ** Register the SMS package that you want to use it on monitoring package
+     ** Register the SMS package that you want to use it on antena package
      *
      * @return null 
      */
     public function register()
     {
-        $config = config('monitor.sms.drivers');
+        $config = config('antena.sms.drivers');
         $this->api = new KavenegarApi($config['kavenegar']['API_KEY']);
         $this->sender = $config['kavenegar']['sender'];
     }

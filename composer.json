@@ -1,5 +1,5 @@
 {
-    "name": "foxyntax/monitoring",
+    "name": "foxyntax/antena",
     "description": "It provides some features to manitor your bugs",
     "type": "library",
     "license": "MIT",
@@ -18,13 +18,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Foxyntax\\Monitoring\\": "src/"
+            "Foxyntax\\Antena\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Foxyntax\\Monitoring\\MonitoringServiceProvider"
+                "Foxyntax\\Antena\\AntenaServiceProvider"
             ]
         }
     }

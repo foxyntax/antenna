@@ -1,6 +1,6 @@
 <?php
 
-namespace Foxyntax\Monitoring;
+namespace Foxyntax\Antena;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -14,7 +14,7 @@ class MonitoringServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/config/monitor.php', 'monitor'
+            __DIR__.'/config/antena.php', 'antena'
         );
     }
 
@@ -27,7 +27,7 @@ class MonitoringServiceProvider extends ServiceProvider
     {
         // Publish configuration file
         $this->publishes([
-            __DIR__.'/config/monitor.php' => config_path('monitor.php'),
+            __DIR__.'/config/antena.php' => config_path('antena.php'),
         ], 'config');
 
         // Publish views [email views] file
@@ -37,7 +37,7 @@ class MonitoringServiceProvider extends ServiceProvider
         ], 'views');
 
         // Publishing translations
-        $this->loadTranslationsFrom(__DIR__.'/app/lang', 'monitoring');
+        $this->loadTranslationsFrom(__DIR__.'/app/lang', 'antena');
 
         // Load migration
         $this->loadMigrationsFrom(__DIR__.'/migrations');

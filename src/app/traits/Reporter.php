@@ -1,12 +1,12 @@
 <?php
 
-namespace Foxyntax\Monitoring\App\Traits;
+namespace Foxyntax\Antena\App\Traits;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
-use Foxyntax\Monitoring\App\Mails\MailToDeveloper;
-use Foxyntax\Monitoring\App\Services\MailLogService;
-use Foxyntax\Monitoring\App\Models\FxMonitoringReports;
+use Foxyntax\Antena\App\Mails\MailToDeveloper;
+use Foxyntax\Antena\App\Services\MailLogService;
+use Foxyntax\Antena\App\Models\FxMonitoringReports;
 
 trait Reporter {
 
@@ -79,17 +79,17 @@ trait Reporter {
     }
 
     /**
-     ** Register all monitor configuration
+     ** Register all antena configuration
      * 
      * @return void
      */
     protected function get_configuration() : void
     {
         $this->config = [
-            'API_KEY'   => config('monitor.API_KEY'),
-            'limitation'=> config('monitor.limitation'),
-            'period'    => config('monitor.period'),
-            'roles'     => config('monitor.roles')
+            'API_KEY'   => config('antena.API_KEY'),
+            'limitation'=> config('antena.limitation'),
+            'period'    => config('antena.period'),
+            'roles'     => config('antena.roles')
         ];
     }
 

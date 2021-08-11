@@ -1,11 +1,11 @@
 <?php
-namespace Foxyntax\Monitoring\App\Interfaces;
+namespace Foxyntax\Antena\App\Interfaces;
 
 
 interface DriverRegisteration {
     
     /**
-     ** Register the SMS package that you want to use it on monitoring package
+     ** Register the SMS package that you want to use it on antena package
      *
      * @return null 
      */

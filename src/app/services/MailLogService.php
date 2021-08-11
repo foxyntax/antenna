@@ -1,6 +1,6 @@
 <?php
 
-namespace Foxyntax\Monitoring\App\Services;
+namespace Foxyntax\Antena\App\Services;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
@@ -27,7 +27,7 @@ class MailLogService extends Mailable
     public function __cunstruct()
     {
         $this->config = [
-            'roles' => config('monitor.roles')
+            'roles' => config('antena.roles')
         ];
     }
 

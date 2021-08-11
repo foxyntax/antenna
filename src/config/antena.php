@@ -23,10 +23,11 @@ return [
 
     'sms' => [
         'enabled'   => true,
+        'activated' => 'kavenegar',
         'drivers'    => [
             'kavenegar' => [
-                'enabled'   => true,
-                'API_KEY'   => ''
+                'API_KEY'   => '',
+                'sender'    => ''
             ],
             // 'others'    => [
             //     'enabled'   => true,
@@ -60,10 +61,27 @@ return [
     
         'dev'  => [
             'env'   => 'development',
-            'name'  => '',
-            'email' => '',
-            'tell'  => ''
+            'name'  => 'Milad',
+            'email' => 'milad1995honor@gmail.com',
+            'tell'  => '09156284764',
+            'sms'   => true,
+            'mail'  => false
         ]
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Class Maps
+    |--------------------------------------------------------------------------
+    |
+    | This is the array of Classes that maps to Drivers above.
+    | You can create your own driver if you like and add the
+    | config in the drivers array and the class to use for
+    | here with the same name. You will have to implement
+    | Foxyntax\Antena\App\Interfaces\DriverRegisteration .
+    */
+    'map' => [
+        'kavenegar' => \Foxyntax\Antena\App\Drivers\Kavenegar::class,
     ]
 
 ];

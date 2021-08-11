@@ -1,6 +1,6 @@
 <?php
 
-namespace Foxyntax\Monitoring\App\Mails;
+namespace Foxyntax\Antena\App\Mails;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
@@ -52,8 +52,8 @@ class MailToDeveloper extends Mailable
         $this->time = $time;
         $this->role = $role;
         $this->config = [
-            'lang'  => config('monitor.lang'),
-            'client'=> config('monitor.client')
+            'lang'  => config('antena.lang'),
+            'client'=> config('antena.client')
         ];
     }
 
@@ -66,7 +66,7 @@ class MailToDeveloper extends Mailable
      */
     public function build()
     {
-        App::setLocale($this->config['lang']);
+        $this->set_locale($name);
         return $this->view('emails.fx_development')
                     ->with([
                         'role'  => $this->role,
@@ -74,5 +74,28 @@ class MailToDeveloper extends Mailable
                         'time'  => $this->time,
                         'logs'  => $this->logs
                     ]);
+    }
+
+    /**
+     * ---------------------------------------------------------------------------------------------------------------------------
+     * ---------------------------------------------------------------------------------------------------------------------------
+     * ---------------------------------------------------------------------------------------------------------------------------
+     **---------------------------------------------------- Protected Functions --------------------------------------------------
+     * ---------------------------------------------------------------------------------------------------------------------------
+     * ---------------------------------------------------------------------------------------------------------------------------
+     * ---------------------------------------------------------------------------------------------------------------------------
+     */
+
+    /**
+     ** Set locale from configuration
+     * 
+     */
+    protected function set_locale()
+    {
+        if (isset($this->role['lang'])) {
+            App::setLocale($this->role['lang']);
+        } else {
+            App::setLocale($this->config['lang']);
+        }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Foxyntax\Monitoring\App\Mails;
+namespace Foxyntax\Antena\App\Mails;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
@@ -44,8 +44,8 @@ class MailToClient extends Mailable
         $this->role = $role;
         $this->time = $time;
         $this->config = [
-            'lang'      => config('monitor.lang'),
-            'develiper' => config('monitor.client')
+            'lang'      => config('antena.lang'),
+            'developer' => config('antena.developer')
         ];
     }
 
@@ -66,5 +66,28 @@ class MailToClient extends Mailable
                         'time'  => $this->time,
                         'log'   => $log
                     ]);
+    }
+
+    /**
+     * ---------------------------------------------------------------------------------------------------------------------------
+     * ---------------------------------------------------------------------------------------------------------------------------
+     * ---------------------------------------------------------------------------------------------------------------------------
+     **---------------------------------------------------- Protected Functions --------------------------------------------------
+     * ---------------------------------------------------------------------------------------------------------------------------
+     * ---------------------------------------------------------------------------------------------------------------------------
+     * ---------------------------------------------------------------------------------------------------------------------------
+     */
+
+    /**
+     ** Set locale from configuration
+     * 
+     */
+    protected function set_locale()
+    {
+        if (isset($this->role['lang'])) {
+            App::setLocale($this->role['lang']);
+        } else {
+            App::setLocale($this->config['lang']);
+        }
     }
 }

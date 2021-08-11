@@ -13,7 +13,7 @@ return [
     */
 
     'title'        => 'Report bugs',
-    'package-name' => 'Monitoring | Foxyntax',
+    'package-name' => 'Antena | Foxyntax',
     'bugs'         => ':log-count bugs found',
     
     'dev-title'    => ':app-name found new bugs, please fix it as soon as possible.',

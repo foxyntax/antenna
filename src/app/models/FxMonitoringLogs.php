@@ -1,6 +1,6 @@
 <?php
 
-namespace Foxyntax\Monitoring\App\Models;
+namespace Foxyntax\Antena\App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

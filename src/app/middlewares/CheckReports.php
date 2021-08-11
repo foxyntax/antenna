@@ -1,9 +1,9 @@
 <?php
 
-namespace Foxyntax\Monitoring\App\Middlewares;
+namespace Foxyntax\Antena\App\Middlewares;
 
 use Closure;
-use Foxyntax\Monitoring\App\Traits\Reporter;
+use Foxyntax\Antena\App\Traits\Reporter;
 
 class CheckReports {
 
