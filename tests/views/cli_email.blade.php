@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>{{ __('mail.meta-title') }}</title>
+    <title>Report bugs</title>
     <style>
         /* -------------------------------------
             GLOBAL RESETS
@@ -285,7 +285,7 @@
             <td class="header">
                 <a href="#">
                     <img class="mx-4" src="https://farsisho.com/wp-content/uploads/2020/05/retina-transparent-logo.png">
-                    <span class="package-name mx-4">{{ __('mail.packagename') }}</span>
+                    <span class="package-name mx-4">{{ __('antenna::mail.packagename') }}</span>
                 </a>
             </td>
         <thead>
@@ -301,8 +301,8 @@
                     </tr>
                     <tr>
                         <td class="align-center">
-                            <h1>{{ __('mail.main-title', ['log-count'   => count($logs)]) }}</h1>
-                            <p class="mb-sec mt-0">{{ __('mail.dev-desc-title', ['app-name'    => config('app.name')]) }}</p>
+                            <h1>{{ __('antenna::mail.main-title', ['log-count'   => count($logs)]) }}</h1>
+                            <p class="mb-sec mt-0"></p>
                         </td>
                     </tr>
                 </table>
@@ -313,52 +313,52 @@
                         <td>
                             <h6 class="mb-4">
                                 <span>&#128355</span>
-                                <span> {{ __('mail.report-time', 'time' => $time) }} </span>
+                                <span> {{ __('antenna::mail.report-time', 'time' => $time) }} </span>
                             </h6>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            {{ __('mail.dev-warning-note') }}
+                            {{ __('antenna::mail.cli-warning-note') }}
                         </td>
                     </tr>
-                    <!-- Client Information -->
-                    @if ( isset($client['name']) || isset($client['location']) || isset($client['tell']))
+                    <!-- Developer Information -->
+                    @if ( isset($developer['name']) || isset($developer['location']) || isset($developer['tell']))
                     <tr>
                         <td>
                             <h5 class="mb-4">
                                 <span>&#128161</span>
-                                <span> {{ __('mail.info-title', ['person'   => 'Client']) }} </span>
+                                <span> {{ __('antenna::mail.info-title', ['person'   => 'Developer']) }} </span>
                             </h5>
                             <table border="0" cellpadding="0" cellspacing="0" class="content info">
-                                @if (isset($client['name']))
+                                @if (isset($developer['name']))
                                 <tr>
                                     <td>
                                         <h6 class="mb-4 mt-0 mx-12">
                                             <small style="">&#11035</small>
-                                            {{ __('mail.name') . ' ' . $client['name'] }}
+                                            {{ __('antenna::mail.name') . ' ' . $developer['name'] }}
                                         </h6>
                                     </td>
                                 </tr>
                                 @endif
 
-                                @if (isset($client['location']))
+                                @if (isset($developer['location']))
                                 <tr>
                                     <td>
                                         <h6 class="mb-4 mt-0 mx-12">
                                             <small style="">&#11035</small>
-                                            {{ __('mail.location') . ' ' . $client['location'] }}
+                                            {{ __('antenna::mail.location') . ' ' . $developer['location'] }}
                                         </h6>
                                     </td>
                                 </tr>
                                 @endif
 
-                                @if (isset($client['tell']))
+                                @if (isset($developer['tell']))
                                 <tr>
                                     <td>
                                         <h6 class="mb-4 mt-0 mx-12">
                                             <small style="">&#11035</small>
-                                            {{ __('mail.tell') . ' ' . $client['tell'] }}
+                                            {{ __('antenna::mail.tell') . ' ' . $developer['tell'] }}
                                         </h6>
                                     </td>
                                 </tr>
@@ -366,40 +366,6 @@
                             </table>
                         </td>
                     </tr>
-                    @endif
-                    <!-- // Divider // -->
-                    <tr>
-                        <td><hr /></td>
-                    </tr>
-                    <!-- // Report Loop // -->
-                    @foreach ($logs as $key => $log)
-                    <tr class="mb-tr">
-                        <td class="block">
-                            <table border="0" cellpadding="0" cellspacing="0" class="content no-pad">
-                                <tr class="mb-4 block">
-                                    <td class="block">
-                                        <h3>
-                                            <span>&#128721</span>
-                                            @if (is_null($log->title))
-                                            {{ __('default-log-title', ['key' => $key]) }}
-                                            @else 
-                                            {{ $log->title }}
-                                            @endif
-                                        </h3>
-                                        <small>
-                                            {{ $log->log }}
-                                        </small>
-                                    <td>
-                                </tr>
-                                <tr>
-                                    <td class="align-center">
-                                        <small class="light-color">{{ $log->created_at }}</small>
-                                    </td>
-                                </tr>
-                            </table>
-                        <td>
-                    </tr>
-                    @endforeach
                     <!-- // Divider // -->
                     <tr>
                         <td><hr /></td>
@@ -407,18 +373,8 @@
                     <!-- // Call to action // -->
                     <tr class="align-center">
                         <td>
-                            <a href="#" class="btn btn-primary mb-sec">{{ __('mail.host-action') }}</a>
+                            <a href="+tel:{{ $developer['tell'] }}" class="btn btn-primary">{{ __('antenna::mail.call-action') }}</a>
                         <td>
-                    </tr>
-                    <!-- Donate Package -->
-                    <tr class="align-center donate">
-                        <td>
-                            <b class="mb-0">{{ __('mail.happy_to_use') }}</b>
-                            <small class="mt-4 block">
-                                <a href="#"><b>{{ __('mail.donate-part1') }}</b></a>
-                                {{ __('mail.donate-part2') }}
-                            </small>
-                        </td>
                     </tr>
                 </table>
             </td>
@@ -426,7 +382,7 @@
         {{-- Footer --}}
         <tfoot class="align-center">
             <td class="footer">
-                <p class="mb-sec mt-4 light-color">{{ __('copyright') }}</p>
+                <p class="mb-sec mt-4 light-color">{{ __('antenna::mail.copyright') }}</p>
             </td>
         </tfoot>
     </table>
