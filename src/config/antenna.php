@@ -78,10 +78,10 @@ return [
     | You can create your own driver if you like and add the
     | config in the drivers array and the class to use for
     | here with the same name. You will have to implement
-    | Foxyntax\Antena\App\Interfaces\DriverRegisteration .
+    | Foxyntax\Antenna\App\Interfaces\DriverRegisteration .
     */
     'map' => [
-        'kavenegar' => \Foxyntax\Antena\App\Drivers\Kavenegar::class,
+        'kavenegar' => \Foxyntax\Antenna\App\Drivers\Kavenegar::class,
     ]
 
 ];

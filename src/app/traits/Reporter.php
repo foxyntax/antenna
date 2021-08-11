@@ -1,12 +1,12 @@
 <?php
 
-namespace Foxyntax\Antena\App\Traits;
+namespace Foxyntax\Antenna\App\Traits;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
-use Foxyntax\Antena\App\Mails\MailToDeveloper;
-use Foxyntax\Antena\App\Services\MailLogService;
-use Foxyntax\Antena\App\Models\FxMonitoringReports;
+use Foxyntax\Antenna\App\Mails\MailToDeveloper;
+use Foxyntax\Antenna\App\Services\MailLogService;
+use Foxyntax\Antenna\App\Models\FxMonitoringReports;
 
 trait Reporter {
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Foxyntax\Antena\App\Models;
+namespace Foxyntax\Antenna\App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class FxMonitoringLogs extends Model
+class FxAntennaLogs extends Model
 {
 
     /**

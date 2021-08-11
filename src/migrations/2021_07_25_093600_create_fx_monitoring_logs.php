@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFxMonitoringLogs extends Migration
+class CreateFxAntennaLogs extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateFxMonitoringLogs extends Migration
      */
     public function up()
     {
-        Schema::create('fx_monitoring_logs', function (Blueprint $table) {
+        Schema::create('fx_antenna_logs', function (Blueprint $table) {
             $table->id();
             $table->text('title')->nullable();
             $table->text('log');
@@ -29,6 +29,6 @@ class CreateFxMonitoringLogs extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fx_monitoring_logs');
+        Schema::dropIfExists('fx_antenna_logs');
     }
 }

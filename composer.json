@@ -8,7 +8,7 @@
             "name": "Milad Mohammadi",
             "email": "support@foxyntax.ir",
             "homepage": "https://foxyntax.ir",
-            "role": "Developer"
+            "role": "Full Stack Developer"
         }
     ],
     "minimum-stability": "dev",
@@ -18,13 +18,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Foxyntax\\Antena\\": "src/"
+            "Foxyntax\\Antenna\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Foxyntax\\Antena\\AntenaServiceProvider"
+                "Foxyntax\\Antenna\\AntennaServiceProvider"
             ]
         }
     }

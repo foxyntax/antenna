@@ -1,10 +1,10 @@
 <?php
 
-namespace Foxyntax\Antena\App\Services;
+namespace Foxyntax\Antenna\App\Services;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
-use Foxyntax\Antena\App\Models\FxMonitoringReports;
+use Foxyntax\Antenna\App\Models\FxMonitoringReports;
 
 class SMSLogService {
 

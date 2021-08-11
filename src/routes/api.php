@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::namespace('Tests')->prefix('test')->group(function () {
-    
+    Route::get('/route', '');
 });

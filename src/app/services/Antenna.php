@@ -1,12 +1,12 @@
 <?php
 
-namespace Foxyntax\Antena\App\Serivces;
+namespace Foxyntax\Antenna\App\Serivces;
 
 use Carbon\Carbon;
-use Foxyntax\Antena\App\Traits\Reporter;
-use Foxyntax\Antena\App\Models\FxMonitoringLogs;
+use Foxyntax\Antenna\App\Traits\Reporter;
+use Foxyntax\Antenna\App\Models\FxMonitoringLogs;
 
-Class Antena 
+Class Antenna 
 {
     use Reporter;
 

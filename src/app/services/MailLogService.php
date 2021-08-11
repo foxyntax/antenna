@@ -1,6 +1,6 @@
 <?php
 
-namespace Foxyntax\Antena\App\Services;
+namespace Foxyntax\Antenna\App\Services;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;

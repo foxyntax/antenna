@@ -1,10 +1,10 @@
 <?php
 
-namespace Foxyntax\Antena;
+namespace Foxyntax\Antenna;
 
 use Illuminate\Support\ServiceProvider;
 
-class MonitoringServiceProvider extends ServiceProvider
+class AntennaServiceProvider extends ServiceProvider
 {
     /**
      * Register services.

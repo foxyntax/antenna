@@ -1,10 +1,10 @@
 <?php
 
-namespace Foxyntax\Antena\Test\Serivces;
+namespace Foxyntax\Antenna\Test\Serivces;
 
 use Carbon\Carbon;
-use Foxyntax\Antena\App\Traits\Reporter;
-use Foxyntax\Antena\App\Models\FxMonitoringLogs;
+use Foxyntax\Antenna\App\Traits\Reporter;
+use Foxyntax\Antenna\App\Models\FxMonitoringLogs;
 
 Class TestController 
 {
@@ -14,6 +14,6 @@ Class TestController
      */
     public function run_watch()
     {
-        Antena::watch('this is a test log', 'Testing Package', true, 'dev');
+        Antenna::watch('this is a test log', 'Testing Package', true, 'dev');
     }
 } 
