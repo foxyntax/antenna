@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Report bugs</title>
+    <title>{{ __('antenna::mail.meta-title') }}</title>
     <style>
         /* -------------------------------------
             GLOBAL RESETS
