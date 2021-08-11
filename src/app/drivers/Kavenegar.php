@@ -1,8 +1,8 @@
 <?php
 
-namespace Foxyntax\Antena\App\Drivers;
+namespace Foxyntax\Antenna\App\Drivers;
 
-use Foxyntax\Antena\App\Interfaces\DriverRegisteration;
+use Foxyntax\Antenna\Interfaces\DriverRegisteration;
 use Kavenegar\KavenegarApi;
 use Kavenegar\Exceptions\ApiException;
 use Kavenegar\Exceptions\HttpException;
