@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Foxyntax\Antenna\Test\Serivces\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,5 +15,9 @@ use Foxyntax\Antenna\Test\Serivces\TestController;
 */
 
 Route::prefix('test')->group(function () {
-    Route::get('/index', [TestController::class, 'test']);
+    Route::get('/index', function() {
+        return response()->json([
+            'ok'    => true
+        ]);
+    });
 });
