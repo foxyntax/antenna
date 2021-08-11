@@ -23,8 +23,8 @@ class SMSLogService {
     public function __cunstruct()
     {
         $this->config = [
-            'roles' => config('antena.roles'),
-            'lang'  => config('antena.lang')
+            'roles' => config('antenna.roles'),
+            'lang'  => config('antenna.lang')
         ];
     }
 
@@ -69,7 +69,7 @@ class SMSLogService {
     }
 
     /**
-     ** Get enabled driver instance from antena configuration 
+     ** Get enabled driver instance from antenna configuration 
      * 
      * @param array $role
      * @param array $logs
@@ -77,10 +77,10 @@ class SMSLogService {
      */
     protected function get_driver(array $logs)
     {
-        $activated_driver = config('antena.sms.activated');
-        if (isset(config("antena.map")[$activated_driver])) {
+        $activated_driver = config('antenna.sms.activated');
+        if (isset(config("antenna.map")[$activated_driver])) {
 
-            return require(config("antena.map.$activated_driver"));
+            return require(config("antenna.map.$activated_driver"));
 
         } else {
 
@@ -97,7 +97,7 @@ class SMSLogService {
      */
     protected function get_default_driver()
     {
-        return require(config('antena.map.kavenegar'));
+        return require(config('antenna.map.kavenegar'));
     }
 
     /**
@@ -122,16 +122,16 @@ class SMSLogService {
      */
     protected function get_dev_data(array $logs, array $role)
     {
-        $message  = __('antena::sms.title') . PHP_EOL;
-        $message .= __('antena::sms.bugs', ['log-count'   => count($logs)]) . PHP_EOL . PHP_EOL;
-        $message .= __('antena::sms.dev-title', ['app-name' => config('app.name')]) . PHP_EOL;
+        $message  = __('antenna::sms.title') . PHP_EOL;
+        $message .= __('antenna::sms.bugs', ['log-count'   => count($logs)]) . PHP_EOL . PHP_EOL;
+        $message .= __('antenna::sms.dev-title', ['app-name' => config('app.name')]) . PHP_EOL;
 
         if (isset($role['tell'])) {
-            $message .= __('antena::sms.dev-tell', ['employer' => $role['tell']]) . PHP_EOL;
+            $message .= __('antenna::sms.dev-tell', ['employer' => $role['tell']]) . PHP_EOL;
         }
 
         if (isset($role['email'])) {
-            $message .= __('antena::sms.dev-tell', ['employer' => $role['tell']]) . PHP_EOL;
+            $message .= __('antenna::sms.dev-tell', ['employer' => $role['tell']]) . PHP_EOL;
         }
 
         return $message;
@@ -145,15 +145,15 @@ class SMSLogService {
      */
     protected function get_cli_data(array $role)
     {
-        $message  = __('antena::sms.title') . PHP_EOL;
-        $message .= __('antena::sms.cli-title', ['app-name' => config('app.name')]) . PHP_EOL;
+        $message  = __('antenna::sms.title') . PHP_EOL;
+        $message .= __('antenna::sms.cli-title', ['app-name' => config('app.name')]) . PHP_EOL;
 
         if (isset($role['tell'])) {
-            $message .= __('antena::sms.dev-tell', ['developer' => $role['tell']]) . PHP_EOL;
+            $message .= __('antenna::sms.dev-tell', ['developer' => $role['tell']]) . PHP_EOL;
         }
 
         if (isset($role['email'])) {
-            $message .= __('antena::sms.dev-mail', ['developer' => $role['email']]) . PHP_EOL;
+            $message .= __('antenna::sms.dev-mail', ['developer' => $role['email']]) . PHP_EOL;
         }
 
         return $message;

@@ -27,7 +27,7 @@ return [
     'default-log-title' => 'The #:key',
     'host-action'       => 'Go to host',
     'call-action'       => 'Call your developer',
-    'happy-to-use'      => 'Are you happy to use foxyntax antena package??',
+    'happy-to-use'      => 'Are you happy to use foxyntax antenna package??',
     'donate-part1'      => 'donate me',
     'donate-part2'      => 'to add more features in future package upgrades',
     'copyright'         => 'Created by Milad Mohammadi | Foxyntax',

@@ -14,7 +14,7 @@ class MonitoringServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/config/antena.php', 'antena'
+            __DIR__.'/config/antenna.php', 'antenna'
         );
     }
 
@@ -27,7 +27,7 @@ class MonitoringServiceProvider extends ServiceProvider
     {
         // Publish configuration file
         $this->publishes([
-            __DIR__.'/config/antena.php' => config_path('antena.php'),
+            __DIR__.'/config/antenna.php' => config_path('antenna.php'),
         ], 'config');
 
         // Publish views [email views] file
@@ -37,7 +37,7 @@ class MonitoringServiceProvider extends ServiceProvider
         ], 'views');
 
         // Publishing translations
-        $this->loadTranslationsFrom(__DIR__.'/app/lang', 'antena');
+        $this->loadTranslationsFrom(__DIR__.'/app/lang', 'antenna');
 
         // Load migration
         $this->loadMigrationsFrom(__DIR__.'/migrations');

@@ -5,7 +5,7 @@ namespace Foxyntax\Antena\App\Interfaces;
 interface DriverRegisteration {
     
     /**
-     ** Register the SMS package that you want to use it on antena package
+     ** Register the SMS package that you want to use it on antenna package
      *
      * @return null 
      */

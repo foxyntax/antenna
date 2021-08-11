@@ -28,13 +28,13 @@ class Kavenegar implements DriverRegisteration {
 
 
     /**
-     ** Register the SMS package that you want to use it on antena package
+     ** Register the SMS package that you want to use it on antenna package
      *
      * @return null 
      */
     public function register()
     {
-        $config = config('antena.sms.drivers');
+        $config = config('antenna.sms.drivers');
         $this->api = new KavenegarApi($config['kavenegar']['API_KEY']);
         $this->sender = $config['kavenegar']['sender'];
     }

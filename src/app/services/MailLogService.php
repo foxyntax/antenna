@@ -27,7 +27,7 @@ class MailLogService extends Mailable
     public function __cunstruct()
     {
         $this->config = [
-            'roles' => config('antena.roles')
+            'roles' => config('antenna.roles')
         ];
     }
 

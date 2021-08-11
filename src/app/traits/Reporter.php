@@ -79,17 +79,17 @@ trait Reporter {
     }
 
     /**
-     ** Register all antena configuration
+     ** Register all antenna configuration
      * 
      * @return void
      */
     protected function get_configuration() : void
     {
         $this->config = [
-            'API_KEY'   => config('antena.API_KEY'),
-            'limitation'=> config('antena.limitation'),
-            'period'    => config('antena.period'),
-            'roles'     => config('antena.roles')
+            'API_KEY'   => config('antenna.API_KEY'),
+            'limitation'=> config('antenna.limitation'),
+            'period'    => config('antenna.period'),
+            'roles'     => config('antenna.roles')
         ];
     }
 

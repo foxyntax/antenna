@@ -44,8 +44,8 @@ class MailToClient extends Mailable
         $this->role = $role;
         $this->time = $time;
         $this->config = [
-            'lang'      => config('antena.lang'),
-            'developer' => config('antena.developer')
+            'lang'      => config('antenna.lang'),
+            'developer' => config('antenna.developer')
         ];
     }
 

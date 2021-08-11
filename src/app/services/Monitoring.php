@@ -59,7 +59,7 @@ Class Antena
     protected function delete_unnecessary_logs() : void
     {
         $sent_logs_count = FxMonitoringLogs::where('is_sent', 1)->count();
-        $max_archives = config('antena.limitation.archives');
+        $max_archives = config('antenna.limitation.archives');
         
         // Delete extra records
         if ($send_logs_count > $max_archives) {
