@@ -23,7 +23,7 @@ Class TestController
      */
     public function test()
     {
-        return $response->json([
+        return response()->json([
             'success'   => true
         ]);
     }
