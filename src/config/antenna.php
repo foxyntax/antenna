@@ -14,7 +14,7 @@ return [
 
     'limitation'    => [
         'archives'      => 2000,
-        'allowed_role'  => null
+        'allowed_role'  => []
     ],
 
     'lang'  => 'en',
