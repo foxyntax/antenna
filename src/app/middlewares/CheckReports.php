@@ -18,7 +18,7 @@ class CheckReports {
      */
     public function handle($request, Closure $next, $role = null)
     {
-        $this->report(null, false, null, $role);   
+        $this->report(null, false, $role);   
 
         return $next($request);
     }

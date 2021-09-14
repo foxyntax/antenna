@@ -37,7 +37,7 @@ Class Antenna
         $logs->save();
 
         if ($immediately) {
-            $this->report($log, $immediately, $limit, $role);
+            $this->report($log, $immediately, $role);
         }
     }
 
