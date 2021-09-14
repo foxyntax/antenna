@@ -4,7 +4,7 @@ namespace Foxyntax\Antenna\App\Serivces;
 
 use Carbon\Carbon;
 use Foxyntax\Antenna\App\Traits\Reporter;
-use Foxyntax\Antenna\App\Models\FxMonitoringLogs;
+use Foxyntax\Antenna\App\Models\FxAntennaLogs;
 
 Class Antenna 
 {
@@ -31,7 +31,7 @@ Class Antenna
      */
     public function watch(string $log, string $title, bool $immediately = false, mixed $role = null) : void
     {
-        $logs = new FxMonitoringLogs();
+        $logs = new FxAntennaLogs();
         $logs->title = $title;
         $logs->log = $log;
         $logs->save();
@@ -58,12 +58,12 @@ Class Antenna
       */
     protected function delete_unnecessary_logs() : void
     {
-        $sent_logs_count = FxMonitoringLogs::where('is_sent', 1)->count();
+        $sent_logs_count = FxAntennaLogs::where('is_sent', 1)->count();
         $max_archives = config('antenna.limitation.archives');
         
         // Delete extra records
         if ($send_logs_count > $max_archives) {
-            FxMonitoringLogs::where('is_sent', 1)
+            FxAntennaLogs::where('is_sent', 1)
                             ->orderBy('id', 'asc')
                             ->limit($send_logs_count - $max_archives)
                             ->delete();
