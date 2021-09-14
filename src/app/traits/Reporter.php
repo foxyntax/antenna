@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use Foxyntax\Antenna\App\Mails\MailToDeveloper;
 use Foxyntax\Antenna\App\Services\MailLogService;
-use Foxyntax\Antenna\App\Models\FxMonitoringReports;
+use Foxyntax\Antenna\App\Models\FxAntennaReports;
 
 trait Reporter {
 
@@ -43,7 +43,7 @@ trait Reporter {
      *
      * @var array
      */
-    protected $allowed_roles;
+    protected $requested_roles;
 
 
     
@@ -71,7 +71,7 @@ trait Reporter {
         
         if (!$immediately) {
 
-            $this->get_allowed_roles();
+            $this->get_allowed_to_users();
 
         }
         
@@ -101,14 +101,11 @@ trait Reporter {
      */
     protected function get_requested_roles(mixed $role) : void
     {
-        // Get role types
-        $roles_types = array_keys($this->config['roles']);
-
-        // remove all types that we don't need to have
+        // 
         if (! is_null($role)) {
-            $this->allowed_roles = array_diff($role_types, $role);
+            $this->requested_roles = $role;
         } else {
-            $this->allowed_roles = array_diff($role_types, $this->config['limitation']['allowed_role']);
+            $this->requested_roles = array_keys($this->config['roles']);
         }
     }
 
@@ -117,28 +114,31 @@ trait Reporter {
      * 
      * @return void
      */
-    protected function get_allowed_roles() : void
+    protected function get_allowed_to_users() : void
     {
         $this->time = Carbon::now('Asia/Tehran');
 
         // Get the latest reports for each user and allow to send reports if they are qualified
         $roles = [];
-        foreach ($this->allowed_roles as $name) {
-            $latest_report = FxMonitoringReports::where('role_type', $name)
-                                                        ->latest()
-                                                        ->first();
+        foreach ($this->requested_roles as $name) {
+            $latest_report = FxAntennaReports::where('role_type', $name)
+                                            ->select('created_at')
+                                            ->latest()
+                                            ->first();
 
-            $period = (isset($this->config['roles'][$latest_report->role_type]['period'])) 
-                ? $this->config['roles'][$latest_report->role_type]['period']
-                : $this->config['period'];
+            $period = (isset($this->config['roles'][$name]['period'])) 
+                                                            ? $this->config['roles'][$name]['period']
+                                                            : $this->config['period'];
 
             if (Carbon::parse($latest_report->created_at)->timestamp + ($period * 3600) >= Carbon::parse($this->time)->timestamp) {
-                array_push($roles, $latest_report->role_type);
+
+                array_push($roles, $name);
+
             }
         }
 
-        // Renew $this->allowed_roles based on latest reports
-        $this->allowed_roles = $roles;
+        // Renew $this->requested_roles based on latest reports
+        $this->requested_roles = $roles;
     }
 
     /**
@@ -148,7 +148,7 @@ trait Reporter {
      */
     protected function send() : void
     {
-        foreach ($this->allowed_roles as $name) {
+        foreach ($this->requested_roles as $name) {
 
             $sms_enabled = (isset($this->config['roles'][$name]['sms'])) 
                 ? $this->config['roles'][$name]['sms']
@@ -161,14 +161,14 @@ trait Reporter {
             // Send log(s) if it's enabled
             if ($sms_enabled) {
             
-                SMSLogService::sms($this->log, $this->allowed_roles);
+                SMSLogService::sms($this->log, $this->requested_roles);
             
             }
 
             // Mail log(s) if it's enabled
             if ($mail_enabled) {
                 
-                MailLogService::mail($this->log, $this->allowed_roles, Carbon::parse($this->time)->format('H:i'));
+                MailLogService::mail($this->log, $this->requested_roles, Carbon::parse($this->time)->format('H:i'));
 
             }
 
@@ -177,15 +177,14 @@ trait Reporter {
 
                 $env_conf = $this->config['roles'][$name]['env'];
                 $env = (isset($this->config['roles'][$name]['env']) && ($env_conf === 'client' || $env_conf === 'development'))
-                    ? $env_conf
-                    : 'client';
+                                                                                                                        ? $env_conf
+                                                                                                                        : 'client';
                 $this->save_report($name, $env);
 
             }
 
         }
     }
-
 
     /**
      ** Save report for a role
@@ -197,7 +196,7 @@ trait Reporter {
     protected function save_report(string $name, string $env) : void
     {
  
-        $new_report = new FxMonitoringReports();
+        $new_report = new FxAntennaReports();
         $new_report->role_type = $name;
         $new_report->env = $name;
         $new_report->send_at = $this->time;
