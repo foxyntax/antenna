@@ -168,7 +168,7 @@ class SMSLogService {
     protected function log(string $env)
     {
         $file_path = __DIR__ . '/../../logs/logs.txt';
-        $new_content = "the environment is not defined and can\'t mail it\nthat env is $env.";
+        $new_content = "the environment is not defined and can\'t send a sms to it\nthat env is $env.";
         
         if (file_exists($file_path)) {
             $file_content = file_get_contents($file_path);
